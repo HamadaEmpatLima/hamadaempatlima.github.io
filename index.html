@@ -95,10 +95,14 @@
       animation-delay: 1s;
     }
 
+    .clickMe{
+      -webkit-transition: all 0.2s ease-in;
+      transition: all 0.2s ease-in;
+    } 
+
     .fade-in {
-		animation: fadeIn ease 1s;
-		animation-delay: 1s;
-		opacity: 0;
+      animation: fadeIn ease 1s;
+      animation-delay: 1s;
     }
 
     @keyframes fadeIn {
@@ -196,12 +200,12 @@
         <div class="bg-yellow-500 shadow-md cursor-pointer h-8 flex items-center p-5 rounded-md mx-0 hidden animate__animated animate__backInLeft" style="width: 120px;" id="text-tengah-kiri">
           SiMonSTOK
         </div>
-        <a
-          class="bg-yellow-500 shadow-md cursor-pointer h-8 flex items-center p-5  rounded-full mx-16 justify-center"
+        <div
+          class="bg-yellow-500 shadow-md cursor-pointer h-8 flex items-center p-5  rounded-full mx-16 justify-center text-4xl"
           style="width: 200px; height: 200px" id="clickMe"
         >
           Click Me!
-        </a>
+        </div>
         <div class="bg-yellow-500 shadow-md cursor-pointer h-8 flex justify-center items-center p-5 rounded-md mx-0 hidden animate__animated animate__backInRight" style="width: 120px;" id="text-tengah-kanan">
           SKPG
         </div>
@@ -219,7 +223,7 @@
         <div class="bg-yellow-600 shadow-md cursor-pointer h-8 flex items-center p-5 rounded-md ml-12 ml-5 justify-center hidden animate__animated animate__bounceInUp" style="width: 110px" id="text-bawah-kanan">
           BMKG
         </div>
-        <a class="bg-yellow-600 shadow-md cursor-pointer h-8 flex items-center p-5 rounded-md justify-center hidden animate__animated animate__bounceInUp" style="width: 110px; margin-left: 15px;" id="text-bawah-kanan2">
+        <div class="bg-yellow-600 shadow-md cursor-pointer h-8 flex items-center p-5 rounded-md justify-center hidden animate__animated animate__bounceInUp" style="width: 110px; margin-left: 15px;" id="text-bawah-kanan2">
           DIBI
         </div>
       </div>
@@ -286,7 +290,11 @@
             </g>
           </svg>`
 		document.getElementById("clickMe").addEventListener("click", function(){
-			document.getElementById("svg_area").innerHTML = svg;
+      document.getElementById("svg_area").innerHTML = svg;
+      document.getElementById("clickMe").classList.remove("text-4xl");
+      document.getElementById("clickMe").classList.add("text-2xl");
+      document.getElementById("clickMe").innerHTML = "Aplikasi XYZ";
+      
 			setTimeout(function () {
 				document.getElementById("text-atas").classList.remove("hidden");
 			}, 760)
